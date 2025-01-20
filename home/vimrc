@@ -1,0 +1,46 @@
+"""""""""""
+" vim-plug
+"""""""""""
+" To vim-plug:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" To install plugins:
+" :PlugInstall
+"""""""""""
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Initialize vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Plugins
+Plug 'easymotion/vim-easymotion'
+
+" End vim-plug setup
+call plug#end()
+
+
+" Built-in Plugins
+syntax enable
+set smartindent
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set scrolloff=7
+
+" Key-binds
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+let mapleader = " "
+inoremap <C-BS> <C-W>
+
+nnoremap diw diwx
+nmap <leader>f <Plug>(easymotion-bd-w)
+nnoremap ;di diwi
+
+" Snippets
+noremap ,cb :-1read ~/snippets/codeBubble.md<CR>ji
+
