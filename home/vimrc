@@ -36,10 +36,11 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 let mapleader = " "
 inoremap <C-BS> <C-W>
-
 nnoremap diw diwx
 nmap <leader>f <Plug>(easymotion-bd-w)
 nnoremap ;di diwi
+nnoremap ;n :bn<CR>
+
 
 " Snippets
 noremap ,cb :-1read ~/snippets/codeBubble.md<CR>ji
