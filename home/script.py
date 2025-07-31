@@ -1,6 +1,6 @@
 def get_file_contents(file):
     with open(file, "r") as f:
-        content = f.readlines()
+        content = f.read()
 
     return content
 
