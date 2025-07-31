@@ -6,4 +6,6 @@ def get_file_contents(file):
 
 
 
-print(get_file_contents("bashrc"), get_file_contents("vimrc"), get_file_contents("tmux.conf"))
+print(get_file_contents("bashrc"))
+print(get_file_contents("vimrc"))
+print(get_file_contents("tmux.conf"))
