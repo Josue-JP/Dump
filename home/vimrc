@@ -1,3 +1,4 @@
+
 """""""""""
 " vim-plug
 """""""""""
@@ -30,18 +31,34 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set scrolloff=7
+set number relativenumber
+set virtualedit=all
 
 " Key-binds
+let mapleader = " "
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-let mapleader = " "
-inoremap <C-BS> <C-W>
-nnoremap diw diwx
+inoremap <C-H> <C-W>
 nmap <leader>f <Plug>(easymotion-bd-w)
-nnoremap ;di diwi
+nnoremap diw diwx
 nnoremap ;n :bn<CR>
+nnoremap <leader>d :Ex<CR>
+nnoremap ;ln :call ToggleLineNumbers()<CR>
+nnoremap Q :q!<CR>
+nnoremap <leader>e :e
+nnoremap <leader>P :!clear; echo "-------"; sleep .25; python3 main.py<CR>
+xnoremap <leader>p "_dP_
+
+" Functions
+function! ToggleLineNumbers()
+  if &number && &relativenumber
+    set nonumber norelativenumber
+  else
+    set number relativenumber
+  endif
+endfunction
 
 
 " Snippets
-noremap ,cb :-1read ~/snippets/codeBubble.md<CR>ji
-
+" The line below is an example of how to insert code snippets with keybindings
+" noremap ,cb :-1read ~/snippets/codeBubble.md<CR>ji
