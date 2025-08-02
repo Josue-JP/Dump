@@ -1,3 +1,8 @@
+alias zls='zoxide query -l'
+alias zr='zoxide remove'
+alias za='zoxide add'
+
+
 if [ -z "$TMUX" ]; then
   tmux
 fi
