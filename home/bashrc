@@ -17,6 +17,17 @@ if [ -z "$TMUX" ]; then
   tmux
 fi
 
+gacp() {
+    if [[ -z "$1" ]]; then
+        echo "No Message Provided"
+        echo "You Must Provide A Message For The Commit"
+        return 1
+    fi
+    git add .
+    git commit -m "$1"
+    git push origin main
+}
+
 
 g() {
     g() {
