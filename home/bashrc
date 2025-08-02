@@ -1,6 +1,16 @@
+
+#
+# ~/.bashrc
+#
+
 alias zls='zoxide query -l'
 alias zr='zoxide remove'
 alias za='zoxide add'
+
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init bash)"
+
+
 
 
 if [ -z "$TMUX" ]; then
