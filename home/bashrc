@@ -1,7 +1,10 @@
-
 #
 # ~/.bashrc
 #
+
+
+alias l='ls -CF'
+alias la='ls -Fla'
 
 alias zls='zoxide query -l'
 alias zr='zoxide remove'
@@ -56,14 +59,26 @@ g() {
 
 p() {
     if [[ -z "$1" ]]; then
-        echo "Error: No source file provided."
+        echo "Error: No source file provided as the first argument."
         return 1
     fi
 
-    if ! python3 "$1"; then
+    if [[ ! -f "$1" ]]; then
+        echo "Error: The first argument is not a file"
+        return 1
+    fi
+
+    if [[ "$1" != *.py  ]]; then
+        echo "Error: The first argument is not a Python (.py) file"
+        return 1
+    fi
+
+    script="$1"
+    shift # This removes $1 from the equation when doing $@
+
+    if ! python3 "$script" "$@"; then
         echo "CF!!!"
         return 1
     fi
 
 }
-
