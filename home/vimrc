@@ -42,12 +42,16 @@ inoremap <C-H> <C-W>
 nmap <leader>f <Plug>(easymotion-bd-w)
 nnoremap diw diwx
 nnoremap ;n :bn<CR>
-nnoremap <leader>d :Ex<CR>
 nnoremap ;ln :call ToggleLineNumbers()<CR>
 nnoremap Q :q!<CR>
-nnoremap <leader>e :e
-nnoremap <leader>P :!clear; echo "-------"; sleep .25; python3 main.py<CR>
+nnoremap <leader>e :e 
+nnoremap <leader>P :call ToggleP()<CR>
+nnoremap <leader>D :Ex<CR>
+nnoremap <leader>d ggVGdka<CR>
+" nnoremap <leader>P :!clear; echo "-------"; sleep .25; python3 main.py<CR>
+nnoremap <leader>cat :call COPY()<CR>
 xnoremap <leader>p "_dP_
+nnoremap ;f vf)y`lp==
 
 " Functions
 function! ToggleLineNumbers()
@@ -58,7 +62,20 @@ function! ToggleLineNumbers()
   endif
 endfunction
 
+function! ToggleP() 
+    w
+    !clear; echo "-------"; sleep .25; python3 main.py
+endfunction
+
+function! COPY() 
+    w
+    let filename = expand('%:p')
+    execute '!clear; cat ' . shellescape(filename)
+endfunction
 
 " Snippets
 " The line below is an example of how to insert code snippets with keybindings
 " noremap ,cb :-1read ~/snippets/codeBubble.md<CR>ji
+noremap ,pp :-1read ~/snippets/py_print.py<CR>==ci"
+noremap ,pf :-1read ~/snippets/py_func.py<CR>==fFciw
+noremap ,plf :-1read ~/snippets/py_for.py<CR>==fvciw

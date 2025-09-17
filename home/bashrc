@@ -1,7 +1,6 @@
-#
-# ~/.bashrc
-#
+#### ~/.bashrc
 
+export EDITOR="vim"
 
 alias l='ls -CF'
 alias la='ls -Fla'
